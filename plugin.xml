@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- id: プラグインの識別子、version: プラグインのバージョン -->
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  id="cordova-plugin-gettextdata"
+  version="1.0.0">
+
+  <!-- プラグイン名 -->
+  <name>GetTextData</name>
+  <!-- プラグインの説明 -->
+  <description>This is a first plugin !!</description>
+  <!-- 作者 -->
+  <author>screation</author>
+  <!-- キーワード -->
+  <keywords></keywords>
+  <!-- ライセンス -->
+  <license>Sample License</license>
+  <!-- プラグインがサポートするCordovaのバージョン -->
+  <engines>
+    <engine name="cordova-android" version=">5.0.0"/>
+  </engines>
+  <!-- JSの場所指定。name: モジュール名 -->
+  <js-module src="www/gettextdata.js" name="get">
+    <clobbers target="get"/>
+  </js-module>
+
+  <!-- Android用の設定 -->
+  <platform name="android">
+    <!-- Androidのconfig.xmlはここ→project/platform/android/res/xml/config.xmlにあるのでそこに反映するように -->
+    <config-file target="res/xml/config.xml" parent="/*">
+      <!-- Cordovaはfeatureタグをみて、どのプラグインが有効か見る。以下の情報が上記のファイルに追加される。 -->
+      <feature name="gettextdata">
+        <param name="android-package" value="plugin.gettextdata.GetTextData"/>
+      </feature>
+    </config-file>
+    <!-- Javaのソースファイル。 target-dir: ファイルがコンパイルされるべき場所 -->
+    <!-- 以下だとproject/platform/android/src/plugin/gettextdata/以下になる -->
+    <source-file src="src/android/GetTextData.java" target-dir="src/plugin/gettextdata/"/>
+  </platform>
+</plugin>
